@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.pyc
+
+# ML models
+*.pkl
+
+# Database
+*.db
+
+# Virtual environment
+venv/
+
+# Environment variables
+.env
+
+# Uploads
+uploads/
+
+# System files
+.DS_Store
+Thumbs.db
+
+dataset/
