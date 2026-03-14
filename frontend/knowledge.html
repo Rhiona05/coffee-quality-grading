@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Coffee Knowledge</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>📚 Coffee Quality & Grading Knowledge</h1>
+
+    <h2>☕ What is Coffee Bean Grading?</h2>
+    <p>
+        Coffee bean grading is the process of evaluating beans based on texture,
+        defects, size, color, and overall quality. Higher grades indicate premium
+        beans suitable for export and specialty markets.
+    </p>
+
+    <h2>🌱 Types of Coffee</h2>
+    <p><strong>Coffea arabica:</strong> Premium quality, smoother flavor, higher market value.</p>
+    <p><strong>Coffea canephora (Robusta):</strong> Stronger taste, higher caffeine content,
+        commonly used in commercial blends.</p>
+
+    <h2>🔬 Why Texture Matters?</h2>
+    <p>
+        In this system, texture features are extracted using advanced image
+        processing techniques:
+    </p>
+
+    <ul>
+        <li><strong>GLCM (Gray Level Co-occurrence Matrix)</strong> – Measures contrast, energy, homogeneity, and correlation.</li>
+        <li><strong>LBP (Local Binary Pattern)</strong> – Captures micro-texture patterns of the bean surface.</li>
+    </ul>
+
+    <p>
+        These features help the machine learning model detect surface irregularities,
+        defects, and quality variations automatically.
+    </p>
+
+    <br>
+    <a href="/"><button>⬅ Back to Home</button></a>
+</div>
+
+</body>
+</html>

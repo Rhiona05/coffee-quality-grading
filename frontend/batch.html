@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Batch Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>📦 Batch Bean Analysis</h1>
+
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="files" multiple required>
+        <button type="submit">Analyze Batch</button>
+    </form>
+
+    {% if results %}
+    <h2>Results</h2>
+    <table class="history-table">
+        <tr>
+            <th>Image</th>
+            <th>Grade</th>
+            <th>Confidence</th>
+        </tr>
+
+        {% for r in results %}
+        <tr>
+            <td>{{ r.filename }}</td>
+            <td>{{ r.grade }}</td>
+            <td>{{ r.confidence }}%</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h3>📊 Batch Summary</h3>
+    <ul>
+        {% for grade, count in summary.items() %}
+            <li>{{ grade }}: {{ count }} beans</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    <br>
+    <a href="/"><button>⬅ Back to Home</button></a>
+</div>
+
+</body>
+</html>

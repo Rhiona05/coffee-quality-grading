@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>📊 Coffee Quality Dashboard</h1>
+
+    <div class="stats">
+        <p><strong>Total Beans Analyzed:</strong> {{ total }}</p>
+        <p><strong>Analyzed Today:</strong> {{ today_count }}</p>
+    </div>
+
+    <canvas id="gradeChart"></canvas>
+
+    <br>
+    <a href="/"><button>⬅ Back to Home</button></a>
+</div>
+
+<script>
+    const gradeCounts = {{ grade_counts | tojson }};
+
+    const labels = Object.keys(gradeCounts);
+    const data = Object.values(gradeCounts);
+
+    const ctx = document.getElementById('gradeChart').getContext('2d');
+
+    new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: labels,
+            datasets: [{
+                data: data
+            }]
+        }
+    });
+</script>
+<br>
+<a href="/export/csv">
+    <button>⬇ Download CSV Report</button>
+</a>
+</body>
+</html>

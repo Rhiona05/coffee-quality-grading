@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Quality Management System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <h1>☕ Coffee Quality Management</h1>
+
+    <!-- Upload Section -->
+    <div class="upload-section">
+        <form id="uploadForm">
+            <input type="file" id="fileInput" accept="image/*" required>
+            <button type="submit">Analyze Bean</button>
+        </form>
+    </div>
+
+    <!-- Image Preview -->
+    <div id="preview">
+        <img id="previewImg" src="#" alt="" style="display:none;">
+    </div>
+
+    <!-- Result Card -->
+    <div id="resultCard" class="result-card hidden">
+        <h2 id="gradeText"></h2>
+
+        <div class="confidence-container">
+            <div class="confidence-bar">
+                <div id="confidenceFill" class="confidence-fill"></div>
+            </div>
+            <p id="confidenceText"></p>
+        </div>
+
+        <div class="recommendation">
+            <h3>Recommendation</h3>
+            <p id="recommendationText"></p>
+        </div>
+
+        <!-- Feature Chart -->
+        <h3>🔬 Texture Feature Analysis</h3>
+        <canvas id="featureChart"></canvas>
+        <div id="featureValues"></div>
+
+        <!-- Only PDF Download -->
+        <button id="downloadPDFBtn" style="margin-top: 15px;">📄 Download PDF Report</button>
+    </div>
+
+    <div id="loading" class="loading hidden">⏳ Analyzing...</div>
+
+    <!-- Navigation Buttons -->
+    <div style="margin-top:15px;">
+        <a href="/history"><button class="history-btn">📜 View History</button></a>
+        <a href="/dashboard"><button class="history-btn">📊 View Dashboard</button></a>
+        <a href="/batch"><button class="history-btn">📦 Batch Analysis</button></a>
+        <a href="/knowledge"><button class="history-btn">📚 Coffee Knowledge</button></a>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
